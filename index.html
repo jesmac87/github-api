@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='github-api'>
+
+<head>
+    <title>Github Api</title>
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body ng-controller='GithubController'>
+
+    <nav class="navbar navbar-default">
+
+        <a class="navbar-brand" href="#">
+            <img alt="Brand" src="http://sarahtattersall.github.io/PIPE/images/GitHub-Mark-32px.png">
+        </a>
+
+        <p class="navbar-text">Simple GitHub Api Search</p>
+
+        <form class="navbar-form navbar-right" role="search" ng-submit='getUserData()'>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Github's username" aria-describedby="basic-addon2" ng-model='searchText'>
+                <span class="input-group-addon" id="basic-addon2">@github.com</span>
+            </div>
+
+            <button type="submit" class="btn btn-default btn-primary">Submit</button>
+
+        </form>
+
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="col-md-6 col-md-offset-3">
+                <!--Body content-->
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">{{user.name}}</div>
+
+                    <!-- List group -->
+                    <ul class="list-group">
+                        <li class="list-group-item"> Avatar:
+                            <img class='img-responsive' src={{user.avatar_url}}>
+                        </li>
+                        <li class="list-group-item">Company: {{user.company}}</li>
+                        <li class="list-group-item">Email: {{user.email}}</li>
+                        <li class="list-group-item">Repos: {{user.public_repos}}</li>
+                        <li class="list-group-item">Followers: {{user.followers}}</li>
+                        <li class="list-group-item">Following: {{user.following}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src='./bower_components/angular/angular.js'></script>
+    <script src='./app.js'></script>
+    <script src='./controller.js'></script>
+    <script src='./service.js'></script>
+
+
+</body>
+
+</html>
